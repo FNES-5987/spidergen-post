@@ -1,7 +1,8 @@
 {
   "styleName": "PostApp_global",
   "items": {
-    "_global_style_": "\r\n._global_style_\r\n{\r\n\tfont-size: 12px;\r\n\tfont-family: courier;\r\n\ttext-size-adjust: none;\r\n\r\n}\r\n",
-    "global_resp": "\r\n.global_resp\r\n{\r\n\t/* global_resp 는 body 에 추가된 클래스 입니다. */\r\n\r\n}\r\n\r\n/*가로모드*/\r\n@media screen and (orientation: landscape)\r\n{\r\n\t.global_resp\r\n\t{\r\n\t}\r\n}\r\n\r\n/*ios*/\r\n@supports (-webkit-overflow-scrolling: touch)\r\n{\r\n}\r\n\r\n/*tablet*/\r\n@media screen and (min-width:641px)\r\n{\r\n}\r\n"
+    "_global_style_": "\n._global_style_\n{\n\tfont-size: 12px;\n\tfont-family: courier;\n\ttext-size-adjust: none;\n\n}\n",
+    "global_resp": "\n.global_resp\n{\n\t/* global_resp 는 body 에 추가된 클래스 입니다. */\n\n}\n\n/*가로모드*/\n@media screen and (orientation: landscape)\n{\n\t.global_resp\n\t{\n\t}\n}\n\n/*ios*/\n@supports (-webkit-overflow-scrolling: touch)\n{\n}\n\n/*tablet*/\n@media screen and (min-width:641px)\n{\n}\n",
+    "click_title": ".click_title\n{\n\tbackground-color: none;\n}\n.click_title tr > td:nth-child(2)\n{\n\tcursor: pointer;\n\ttext-decoration: underline;\n}"
   }
 }

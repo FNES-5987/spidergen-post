@@ -1,0 +1,25 @@
+{
+	"name": "ac001",
+	"desc": "Grid 테이블로 데이터 전송",
+	"queryType": ".JSON",
+	"input": {
+		"InBlock1": {
+			"format": [
+				["이름입력","input_name","","","char",10,0],
+				["비밀번호입력","input_password","","","char",10,0],
+				["제목입력","input_title","","","char",20,0],
+				["내용입력","input_content","","","char",200,0]
+			]
+		}
+	},
+	"output": {
+		"OutBlock1": {
+			"format": [
+				["이름출력","output_name","","","char",10,0],
+				["비밀번호출력","output_password","","","char",10,0],
+				["제목출력","output_title","","","char",20,0],
+				["내용출력","output_content","","","char",200,0]
+			]
+		}
+	}
+}

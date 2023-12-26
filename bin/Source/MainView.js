@@ -3,45 +3,45 @@
 Constructor
 Do not call Function in Constructor.
 */
-class MainView()
+function MainView()
 {
-	super();
+	AView.call(this);
 
 	
 }
-extends AView;
+afc.extendsClass(MainView, AView);
 
 
-function MainView*init(context, evtListener)
+MainView.prototype.init = function(context, evtListener)
 {
-	super.init(context, evtListener);
+	AView.prototype.init.call(this, context, evtListener);
 
 	//TODO:edit here
 
 };
 
-function MainView*onInitDone()
+MainView.prototype.onInitDone = function()
 {
-	super.onInitDone();
+	AView.prototype.onInitDone.call(this);
 	
 
 };
 
-function MainView*onActiveDone(isFirst)
+MainView.prototype.onActiveDone = function(isFirst)
 {
-	super.onActiveDone(isFirst);
+	AView.prototype.onActiveDone.call(this, isFirst);
 	
 	
 };
 
-function MainView*window_open()
+MainView.prototype.window_open = function()
 {
 	var wnd  = new AWindow('window1');
 	wnd.setResultListener(this);
 	
 	var thisObj = this;
 
-	function MainView*onWindowResult(result, data, cntr) 
+	MainView.prototype.onWindowResult = function(result, data, cntr) 
 	{
 
 		var cntrId = cntr.getContainerId();
@@ -64,27 +64,24 @@ function MainView*window_open()
 	
 };
 
-function MainView*click_btn_newPost(comp, info, e)
+MainView.prototype.click_btn_newPost = function(comp, info, e)
 {
 
 	this.window_open();
 
 };
 
-function MainView*grid_tableSelect(comp, info, e)
+MainView.prototype.grid_tableSelect = function(comp, info, e)
 {
 
 // 	console.log('test');
 
 };
 
-function MainView*table_row_click(comp, info, e)
+MainView.prototype.table_row_click = function(comp, info, e)
 {
 
 	console.log(this.grid_table.colIndexOfCell(this.grid_table.getSelectedCells()[0]));
 	console.log(this.grid_table.tBody);
-	
-	var colNum = this.grid_table.colIndexOfCell(this.grid_table.getSelectedCells()[0]);
-	var isTBody = this.grid_table.tBody
 
 };
