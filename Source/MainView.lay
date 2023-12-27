@@ -35,7 +35,7 @@
                                         <col width="20%">
                                         <col width="20%">
                                     </colgroup>
-                                    <thead align="center" class="head-prop" style="visibility: visible; display: table-header-group;">
+                                    <thead align="center" class="head-prop" style="visibility: visible;">
                                         <tr height="22" style="background-color: rgb(238, 238, 238);">
                                             <td class="agrid_select">NO.</td>
                                             <td class="">제목</td>
@@ -46,7 +46,7 @@
                                     <tbody align="center" class="body-prop">
                                         <tr height="22px" style="height: auto;">
                                             <td class="" style="color: rgb(0, 0, 0);">1,1</td>
-                                            <td class="click_title" data-style="click_title" style="color: rgb(0, 0, 0);">1,2</td>
+                                            <td class="" style="color: rgb(0, 0, 0);">1,2</td>
                                             <td class="">1,3</td>
                                             <td class="" style="">1,4</td>
                                         </tr>

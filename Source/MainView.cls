@@ -7,7 +7,6 @@ class MainView()
 {
 	super();
 	
-	
 }
 extends AView;
 
@@ -80,6 +79,11 @@ function MainView*onWindowResult(result, data, cntr)
 		var cntrId = cntr.getContainerId();
 		var rowNum = this.grid_table.getRowCount();
 		var postNum = rowNum + 1; // 게시글 번호는 1번부터 시작
+		
+		if(rowNum > 0) {
+			var iindex = this.grid_table.getRowSet(1);
+			console.log(iindex);
+		}
 
 		if(result == 1)
 		{
@@ -93,8 +97,6 @@ function MainView*onWindowResult(result, data, cntr)
 			var addRowItem = [postNum, data.title, data.name, data.createTime];
 			
 			var addRow = this.grid_table.prependRow(addRowItem, postItem);	
-			
-			postNum++;
 			
     	} else if(result == 2) {
 			var editItem = {
@@ -114,20 +116,35 @@ function MainView*onWindowResult(result, data, cntr)
 		} else if(result == 3) {
 			console.log(rowNum - data);
 			this.grid_table.removeRow(rowNum - data);
-			
 		}
 	};
 
-function MainView*click_btn_search(comp, info, e)
-{
-	var select = this.search_select.getSelectedIndex();
-	console.log(select);
-	var inputText = this.search_input.getText();
-	console.log(inputText);
-	var rowNum = this.grid_table.getRowCount();
-	console.log(rowNum);
-	
-	var row = this.grid_table.findRowByCellText(select, inputText);
-	console.log(row);
+	/*function MainView*click_btn_search(comp, info, e)
+	{
+		var select = this.search_select.getSelectedIndex();
+		console.log(select);
+		var inputText = this.search_input.getText();
+		console.log(inputText);
+		var rowNum = this.grid_table.getRowCount();
+		console.log(rowNum);
 
-};
+		this.grid_table.createBackup(rowNum, rowNum);
+
+		var rowData = [];
+
+		for (i = 0; i < rowNum; i++) {
+			var row = this.grid_table.findRowByCellText(select, inputText);
+			console.log(row);
+
+			var cells = row.querySelectorAll('td');
+			cells.forEach(function(cell) {
+				rowData.push(cell.textContent.trim());
+			});
+			console.log(rowData);
+			this.grid_table.addRow(rowData);
+			this.grid_table.removeRow(0);
+		}
+		this.grid_table.setDirectBackup(true);
+		for(; i < rowNum; i++) this.grid_table.addRow(rowData);
+	
+		};*/
