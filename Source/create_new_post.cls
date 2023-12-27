@@ -40,16 +40,12 @@ function create_new_post*click_btn_post(comp, info, e)
 {
 
 	var name = this.user_name.getText();
-	var password = this.user_password.getText();
 	var title = this.writing_title.getText();
 	var content = this.writing_content.getText();
 	var createTime = this.now_time();
-	
-// 	console.log(name, password, title, content, createTime);
-	
-	this.getContainer().close(-1, { 
+		
+	this.getContainer().close(1, { 
 		name: name,
-		password: password,
 		title: title,
 		content: content,
 		createTime: createTime,
@@ -77,5 +73,6 @@ function create_new_post*click_btn_cancel(comp, info, e)
 {
 
 	this.getContainer().close();
+	console.log(this.getContainer());
 
 };
