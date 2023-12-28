@@ -11,7 +11,7 @@
                         <option value="value2">제목</option>
                         <option value="value3">작성자</option>
                     </select>
-                    <input data-base="ATextField" data-class="ATextField" type="text" value="" class="ATextField-Style" autocomplete="off" style="width: 200px; height: 25px; position: relative; margin-left: 10px; background-color: rgba(0, 0, 0, 0); left: 0px; top: 0px; vertical-align: bottom;" placeholder="검색어를 입력하세요" id="MainView--search_input">
+                    <input data-base="ATextField" data-class="ATextField" type="text" value="" class="ATextField-Style" autocomplete="off" style="width: 200px; height: 25px; position: relative; margin-left: 10px; background-color: rgba(0, 0, 0, 0); left: 0px; top: 0px; vertical-align: bottom;" placeholder="검색어를 입력하세요" id="MainView--search_input" data-listener-keydown="MainView:press_enter">
                     <button data-base="AButton" data-class="AButton" class="AButton-Style" style="width: 80px; height: 25px; position: relative; border-width: 1px; border-style: solid; border-color: rgb(217, 217, 217); margin-left: 10px; vertical-align: middle;" data-listener-click="MainView:click_btn_search" id="MainView--search_btn">검색</button>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                                         <col width="20%">
                                         <col width="20%">
                                     </colgroup>
-                                    <thead align="center" class="head-prop" style="visibility: visible;">
+                                    <thead align="center" class="head-prop" style="visibility: visible; display: table-header-group;">
                                         <tr height="22" style="background-color: rgb(238, 238, 238);">
                                             <td class="agrid_select">NO.</td>
                                             <td class="">제목</td>
