@@ -51,8 +51,16 @@ MainView.prototype.table_row_click = function(comp, info, e)
 	window.name = "parentForm";
 	
 	var index = this.grid_table.rowIndexOfCell(this.grid_table.getSelectedCells()[0]);
- 
+	
+	var selectRowNum = this.grid_table.getCellText(index, 0);
+	
 	var selectRowData = this.grid_table.getRowData(index);
+	
+	for (i = 0; i  < this.postArray.length; i++) {
+		if (this.postArray[i][0] == selectRowNum) {
+			selectRowData = this.postArray[i][4];
+		}
+	}
 	
 	var thisObj = this;
 	
