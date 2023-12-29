@@ -93,6 +93,8 @@ MainView.prototype.locationTable = function()
 	for (var i = 0; i < arrCnt; i++) {
 		this.grid_table.prependRow(this.postArray[i], this.postArray[i][4]);
 	}
+	
+	this.search_input.setText('');
 };
 
 MainView.prototype.onWindowResult = function(result, data, cntr) 
@@ -170,7 +172,7 @@ MainView.prototype.click_btn_search = function(comp, info, e)
     var colNum = this.grid_table.getColumnCount();
 
     if (inputText === '') { 
-		return; 
+		this.locationTable(); 
 	} else {
 		var matchedRows = [];
 

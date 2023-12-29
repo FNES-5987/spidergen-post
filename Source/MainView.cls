@@ -93,6 +93,8 @@ function MainView*locationTable()
 	for (var i = 0; i < arrCnt; i++) {
 		this.grid_table.prependRow(this.postArray[i], this.postArray[i][4]);
 	}
+	
+	this.search_input.setText('');
 };
 
 function MainView*onWindowResult(result, data, cntr) 
@@ -170,7 +172,7 @@ function MainView*click_btn_search(comp, info, e)
     var colNum = this.grid_table.getColumnCount();
 
     if (inputText === '') { 
-		return; 
+		this.locationTable(); 
 	} else {
 		var matchedRows = [];
 
