@@ -19,7 +19,7 @@
                 <div style="position: relative; box-sizing: border-box; flex-shrink: 1; flex-basis: auto; align-self: auto; margin: 0px 20px 0px 0px;" class="">
                     <div data-base="AView" data-class="AView" class="AView-Style" style="width: 200px; left: 0px; top: 0px; position: relative; height: auto; background-color: rgba(0, 0, 0, 0); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); margin-top: 2px;" id="MainView--con_art_left">
                         <div data-base="AView" data-class="AView" class="AView-Style" style="width: 100%; height: auto; left: 0px; top: 0px; position: relative; margin-left: 0px; margin-top: 0px; background-color: rgba(0, 0, 0, 0); line-height: 30px; text-align: center; display: inline-block;">
-                            <label data-base="ALabel" data-class="ALabel" class="ALabel-Style" style="width: 100%; height: auto; left: 0px; top: 0px; font-size: 1.2rem; font-weight: bold; position: relative; white-space: nowrap; cursor: pointer;">Home</label>
+                            <label data-base="ALabel" data-class="ALabel" class="ALabel-Style" style="width: 100%; height: auto; left: 0px; top: 0px; font-size: 1.2rem; font-weight: bold; position: relative; white-space: nowrap; cursor: pointer;" data-listener-click="MainView:click_home_btn">Home</label>
                             <label data-base="ALabel" data-class="ALabel" class="ALabel-Style" style="width: auto; height: auto; left: 0px; top: 0px; color: rgb(255, 255, 255); text-align: center; position: relative; white-space: nowrap; display: block; background-color: rgb(6, 80, 147); cursor: pointer;" data-listener-click="MainView:click_btn_newPost">Create New Post</label>
                         </div>
                     </div>

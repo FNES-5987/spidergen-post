@@ -73,6 +73,5 @@ function create_new_post*click_btn_cancel(comp, info, e)
 {
 
 	this.getContainer().close();
-	console.log(this.getContainer());
 
 };

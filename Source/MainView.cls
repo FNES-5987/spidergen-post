@@ -51,7 +51,7 @@ function MainView*table_row_click(comp, info, e)
 	window.name = "parentForm";
 	
 	var index = this.grid_table.rowIndexOfCell(this.grid_table.getSelectedCells()[0]);
-
+ 
 	var selectRowData = this.grid_table.getRowData(index);
 	
 	var thisObj = this;
@@ -63,9 +63,9 @@ function MainView*table_row_click(comp, info, e)
 		wnd.setModalBgOption('dark');
 		
 		wnd.setResultListener(this);
-		
+
 		var rowNum = thisObj.grid_table.getRowCount();
-		var postNum = rowNum - index;
+		var postNum = this.grid_table.getCellText(index, 0);
 		
 		wnd.findCompById('edit_name').value = selectRowData.name;
 		wnd.findCompById('edit_title').value = selectRowData.title;
@@ -74,6 +74,17 @@ function MainView*table_row_click(comp, info, e)
 		
 	}
 
+};
+
+function MainView*locationTable()
+{
+	this.grid_table.removeAll();
+	
+	var arrCnt = this.postArray.length;
+	
+	for (var i = 0; i < arrCnt; i++) {
+		this.grid_table.prependRow(this.postArray[i], this.postArray[i][4]);
+	}
 };
 
 function MainView*onWindowResult(result, data, cntr) 
@@ -95,7 +106,9 @@ function MainView*onWindowResult(result, data, cntr)
 		var addRow = this.grid_table.prependRow(addRowItem, postItem);
 		this.rowNum++;
 		this.postArray.push(addRowItem);
-		console.log(this.postArray);
+		
+		// 추가 완료시 홈으로 이동
+		this.locationTable();
 
 	} else if(result == 2) {
 		var editItem = {
@@ -104,24 +117,38 @@ function MainView*onWindowResult(result, data, cntr)
 			content: data.editContent,
 			createTime: data.editCreateTime,
 		};
-		
-		var num = this.rowNum - data.postNum;
-		
-		var editArr = this.postArray[num];
-		console.log(editArr);
 
-		var editRowItem = [data.postNum, data.editTitle, data.editName, data.editCreateTime, editItem];
+		var editRowItems = [data.postNum, data.editTitle, data.editName, data.editCreateTime, editItem];
 		
-		editArr = editRowItem;
+		// 수정시 전역배열의 데이터 수정
+		var editNum = +data.postNum;
 		
-		console.log(editArr);
-		console.log(this.postArray);
-
-		var editRow = this.grid_table.setRow(num, editRowItem);
-		this.grid_table.setRowData(num, editItem);
+		for (i = 0; i < this.postArray.length; i++) {
+			if (this.postArray[i][0] === editNum) {
+				this.postArray[i] = editRowItems;
+				break;
+			}
+		}
+		var editArr = this.postArray[editNum];
+		
+		// 수정 후 해당 열 데이터 변경
+		var index = this.grid_table.rowIndexOfCell(this.grid_table.getSelectedCells()[0]); // 선택(수정)된 열 번호
+		this.grid_table.setRow(index, editRowItems); //
+		this.grid_table.setRowData(index, editRowItems[4]);
 
 	} else if(result == 3) {
-		this.grid_table.removeRow(this.rowNum - data);
+		this.index = this.grid_table.rowIndexOfCell(this.grid_table.getSelectedCells()[0]);
+		this.grid_table.removeRow(this.index);
+		
+		// 삭제 시 전역배열의 데이터 삭제
+		var deleteNum = +data.postNum;
+		
+		var filteredArray = this.postArray.filter(function (arr) {
+			return arr[0] !== deleteNum;
+		});
+		
+		this.postArray = filteredArray;
+
 	}
 };
 
@@ -169,5 +196,12 @@ function MainView*press_enter(comp, info, e)
 	if (e.originalEvent.key === 'Enter') {
 		this.click_btn_search();
 	}
+
+};
+
+function MainView*click_home_btn(comp, info, e)
+{
+
+	this.locationTable();
 
 };

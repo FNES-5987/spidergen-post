@@ -71,7 +71,7 @@ function edit_post*click_btn_edit(comp, info, e)
 	var createTime = `! ${this.now_time()}`;
 	
 	this.getContainer().close(2, { 
-		postNum: postNum,
+		postNum: +postNum,
 		editName: name,
 		editTitle: title,
 		editContent: content,
@@ -85,6 +85,6 @@ function edit_post*click_btn_delete(comp, info, e)
 
 	var postNum = this.post_no.value;
 	
-	this.getContainer().close(3, postNum);
+	this.getContainer().close(3, {postNum: postNum});
 
 };
