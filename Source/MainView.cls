@@ -172,7 +172,7 @@ function MainView*click_btn_search(comp, info, e)
     var colNum = this.grid_table.getColumnCount();
 
     if (inputText === '') { 
-		this.locationTable(); 
+		this.locationTable();
 	} else {
 		var matchedRows = [];
 
